@@ -63,7 +63,6 @@ class MainViewController: UIViewController {
         }
     }
     @objc func onLeft(){
-        
         if i < 4 {
             i += 1
             tableView.reloadData()
@@ -93,19 +92,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "quiz", for: indexPath) as? MyCell else {
             fatalError("fail")
         }
-        var record: JSON =  self.json![0]
-        switch i {
-        case 0:
-            record =  self.json![0]
-        case 1:
-            record =  self.json![1]
-        case 2:
-            record =  self.json![2]
-        case 3:
-            record =  self.json![3]
-        default:
-            record =  self.json![4]
-        }
+        var record: JSON =  self.json![i]
         
         switch indexPath.row {
         case 0:
